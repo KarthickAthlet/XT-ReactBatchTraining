@@ -3,6 +3,11 @@ import React, { Component } from "react";
 class issueListingPage extends Component {
   constructor(props){
     super(props);
+    // this.state = {
+    //   error: null,
+    //   isLoaded: false,
+    //   items: []
+    // };
   }
 
   componentDidMount() {
