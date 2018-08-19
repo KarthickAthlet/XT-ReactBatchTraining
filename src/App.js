@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserDetail from './components/userDetail/index';
+import Router from './components/Router';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
          <h1> Custom Git Viewer </h1>
         </header>
         <section>
-          <UserDetail></UserDetail>
+          <Router></Router>
         </section>
       </div>
     );
