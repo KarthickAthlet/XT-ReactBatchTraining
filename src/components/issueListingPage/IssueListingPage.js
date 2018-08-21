@@ -55,7 +55,7 @@ class issueListingPage extends Component {
           <ul>
             {this.state.issues.map((data,index)=> {
               const title = data.title; 
-              return(<li key={index}>{title}</li>);
+              return(<li key={index}><Link to={`/repos/${this.state.userName}/${this.state.repoName}/issues/${data.number}`} >{title}</Link></li>);
             })}
           </ul>
           </div>);

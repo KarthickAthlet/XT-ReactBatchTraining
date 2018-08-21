@@ -27,7 +27,7 @@ class UserDetail extends Component {
           <label htmlFor="gitProfileName">Enter your git profile Id: </label>
           <input type="text" id="gitProfileName" name="gitProfileName"  ref={(input) => { this.textInput = input; }} onBlur={this.handleSubmit}/>
           {/* <button type="button" onClick={this.handleSubmit}> search </button>         */}
-          <Link to={`users/${this.state.linkValue}/repos`} >search</Link>
+          <Link to={`/users/${this.state.linkValue}/repos`} >search</Link>
        </div>
        {/* <RepoListingPage repoDetailState ={this.state}></RepoListingPage> */}
       </div>);

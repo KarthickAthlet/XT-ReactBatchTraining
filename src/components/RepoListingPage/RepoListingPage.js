@@ -52,7 +52,7 @@ class RepoListingPage extends Component {
       <ul>
         {this.state.repoDetails.map((data,index)=> {
           console.log(data.name); 
-          return(<li key={index}><Link to={`repos/${this.state.userName}/${data.name}/issues/`} >{data.name}</Link></li>);
+          return(<li key={index}><Link to={`/repos/${this.state.userName}/${data.name}/issues/`} >{data.name}</Link></li>);
         })}
       </ul>
     </div>);

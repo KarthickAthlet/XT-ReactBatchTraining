@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
-class PageNotFound extends Component {
-  render() {
-  return (<div>Page Not found..!!!</div>);
-  }
+const PageNotFound = () => {
+    return (
+    <div>
+      Page Not found.!!!
+      <Link to='/' >Click here to go back to homepage</Link>
+    </div>);
 }
 
 export default PageNotFound;
