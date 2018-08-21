@@ -1,6 +1,9 @@
 import { createStore } from 'redux';
-import filterIssues from '../reducers/reducers'
+import rootReducer from '../reducers/index';
 
-const store = createStore(filterIssues);
 
+const store = createStore(rootReducer);
+
+console.log(store.getState());
+debugger;
 export default store;

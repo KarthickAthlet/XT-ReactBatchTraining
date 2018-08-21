@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import RepoListingPage from '../RepoListingPage/index'
 import { Link } from 'react-router-dom';
+
 class UserDetail extends Component {
 
   constructor(props){
@@ -13,6 +14,7 @@ class UserDetail extends Component {
   }
 
   handleSubmit = () => {
+    debugger;
     // console.log(this.textInput.value);
     this.setState({
       linkValue : this.textInput.value
@@ -28,11 +30,9 @@ class UserDetail extends Component {
           <input type="text" id="gitProfileName" name="gitProfileName"  ref={(input) => { this.textInput = input; }} onBlur={this.handleSubmit}/>
           {/* <button type="button" onClick={this.handleSubmit}> search </button>         */}
           <Link to={`/users/${this.state.linkValue}/repos`} >search</Link>
-       </div>
-       {/* <RepoListingPage repoDetailState ={this.state}></RepoListingPage> */}
+       </div>    
       </div>);
   }
 
 }
-
 export default UserDetail;

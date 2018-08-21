@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as completeActions from '../../actions/actionList';
 
 class issueListingPage extends Component {
   constructor(props){
@@ -34,6 +37,8 @@ class issueListingPage extends Component {
             isIssuePresent: true,
             issues: result      
           });
+          
+          this.props.actions.completeIssueFilter(this.state.issues);
         }
         
         console.log("success", this.state);
@@ -62,4 +67,22 @@ class issueListingPage extends Component {
   }
 }
 
-export default issueListingPage;
+function mapStateToProps(state, ownProps) {
+  debugger;
+  return {
+      filterIssues: state.filterIssues
+  };
+
+}
+
+function mapDispatchToProps(dispatch) {
+  console.log(completeActions);
+  debugger;
+  return {
+    actions: bindActionCreators(completeActions, dispatch)
+  };
+
+}
+
+// export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps) (issueListingPage);
