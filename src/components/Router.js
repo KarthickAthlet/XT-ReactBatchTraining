@@ -5,6 +5,7 @@ import {
     Switch
 } from 'react-router-dom';
 import UserDetail from './userDetail/index';
+import RepoListingPage from './RepoListingPage/index'
 import IssueListingPage from './issueListingPage/index';
 import IssueDescribePage from './issueDescribePage/index';
 import PageNotFound from './PageNotFound/index';
@@ -13,7 +14,8 @@ const Router = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={UserDetail} />
-            <Route exact path="/IssueListingPage" component={IssueListingPage} />
+            <Route exact path="/users/:gitUserName/repos" component={RepoListingPage} />
+            <Route exact path="/repos/:gitUserName/:gitRepoName/issues/" component={IssueListingPage} />
             <Route exact path="/IssueDescribePage" component={IssueDescribePage} />
             <Route component={PageNotFound} />
         </Switch>

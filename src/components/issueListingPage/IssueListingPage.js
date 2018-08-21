@@ -1,43 +1,63 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class issueListingPage extends Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //   error: null,
-    //   isLoaded: false,
-    //   items: []
-    // };
+    this.state= {
+      userName : "",
+      repoName : "",
+      isIssuePresent: false,
+      issues:[]
+    }   
   }
 
   componentDidMount() {
-    fetch("https://api.github.com/users/KarthickAthlet")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          // this.setState({
-          //   isLoaded: true,
-          //   items: result.items
-          // });
-          console.log("success");
-          console.log(result);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          // this.setState({
-          //   isLoaded: true,
-          //   error
-          // });
-          console.log("failed");
+    const gitUserName = this.props.match.params.gitUserName;
+    const gitRepoName = this.props.match.params.gitRepoName;
+    console.log(gitUserName,gitRepoName);
+    fetch(`https://api.github.com/repos/${gitUserName}/${gitRepoName}/issues`)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        if(result.length == 0){
+          this.setState({
+            userName: gitUserName,
+            repoName: gitRepoName,
+            isIssuePresent: false,
+            issues:[]      
+          });
+        } else {
+          this.setState({
+            userName: gitUserName,
+            repoName: gitRepoName ,
+            isIssuePresent: true,
+            issues: result      
+          });
         }
-      );
+        
+        console.log("success", this.state);
+        console.log(result);
+      },
+      (error) => {
+        // this.setState({
+        //   isLoaded: true,
+        //   error
+        // });
+        console.log("failed", this.state);
+      }
+    );
   }
 
   render() {
+    // debugger;
   return (<div>
-          <h1>Issue Listing Page</h1> 
+          <ul>
+            {this.state.issues.map((data,index)=> {
+              const title = data.title; 
+              return(<li key={index}>{title}</li>);
+            })}
+          </ul>
           </div>);
   }
 }

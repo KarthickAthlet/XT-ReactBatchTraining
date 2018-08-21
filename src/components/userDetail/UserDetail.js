@@ -1,55 +1,35 @@
 import React, { Component } from "react";
-import RepoListingPage from '../RepoListingPage/index'
-
+// import RepoListingPage from '../RepoListingPage/index'
+import { Link } from 'react-router-dom';
 class UserDetail extends Component {
 
   constructor(props){
     super(props);
 
     this.state = {
-      error: null,
-      isLoaded: false,
-      repoDetails: [],
-      userName:""
+      linkValue : 'default'
     }
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit = () => {
-    console.log(this.textInput.value);
-    const userName = this.textInput.value;
-    fetch(`https://api.github.com/users/${userName}/repos`)
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          isLoaded: true,
-          repoDetails: result,
-          userName : userName
-        });
-        console.log("success", this.state);
-        console.log(result);
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-        console.log("failed", this.state);
-      }
-    );
+    // console.log(this.textInput.value);
+    this.setState({
+      linkValue : this.textInput.value
+    });  
   }
 
   render() {
+    // this.props.routerData ="Unknown";
     return (
       <div>
         <div className="getUserDetails"> 
           <label htmlFor="gitProfileName">Enter your git profile Id: </label>
-          <input type="text" id="gitProfileName" name="gitProfileName"  ref={(input) => { this.textInput = input; }}/>
-          <button type="button" onClick={this.handleSubmit}> search </button>        
+          <input type="text" id="gitProfileName" name="gitProfileName"  ref={(input) => { this.textInput = input; }} onBlur={this.handleSubmit}/>
+          {/* <button type="button" onClick={this.handleSubmit}> search </button>         */}
+          <Link to={`users/${this.state.linkValue}/repos`} >search</Link>
        </div>
-       <RepoListingPage repoDetailState ={this.state}></RepoListingPage>
+       {/* <RepoListingPage repoDetailState ={this.state}></RepoListingPage> */}
       </div>);
   }
 
