@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import UserDetail from './userDetail/index';
 import RepoListingPage from './RepoListingPage/index'
-import IssueListingPage from './issueListingPage/index';
+import IssueListingPage from './IssueListingPage/index';
 import IssueDescribePage from './issueDescribePage/index';
 import PageNotFound from './PageNotFound/index';
 

@@ -5,5 +5,5 @@ import rootReducer from '../reducers/index';
 const store = createStore(rootReducer);
 
 console.log(store.getState());
-debugger;
+// debugger;
 export default store;

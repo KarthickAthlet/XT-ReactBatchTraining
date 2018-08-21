@@ -1,0 +1,8 @@
+.repoListingPage ul li {
+  list-style: none;
+  margin: 20px 0px; }
+  .repoListingPage ul li a {
+    color: black;
+    text-decoration: none; }
+  .repoListingPage ul li a:hover {
+    color: #5b5b5b; }

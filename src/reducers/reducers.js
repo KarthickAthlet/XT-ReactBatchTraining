@@ -9,10 +9,10 @@ const initialState = {
 const filterIssues = (state = initialState, action) => {
     switch (action.type) {
         case 'COMPLETE_ISSUES':
-        debugger;
+        // debugger;
         return state.issues = action.data;
         case 'FILTER_ACTION':
-        debugger;
+        // debugger;
         let selectedQuestion = action.data.completeIssues.findIndex((element)=>{
             return element.number == action.data.issueNumber;
         });

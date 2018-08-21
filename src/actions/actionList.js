@@ -1,5 +1,5 @@
 export const FilterAction = (data) => {
-    debugger;
+    // debugger;
     return {
         type: "FILTER_ACTION",
         data
@@ -7,7 +7,7 @@ export const FilterAction = (data) => {
 }
 
 export const completeIssueFilter = (data) =>{
-    debugger;
+    // debugger;
     return {
         type: "COMPLETE_ISSUES",
         data

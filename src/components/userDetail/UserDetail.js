@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import RepoListingPage from '../RepoListingPage/index'
 import { Link } from 'react-router-dom';
+import './../userDetail/UserDetail.css';
 
 class UserDetail extends Component {
 
@@ -14,7 +15,7 @@ class UserDetail extends Component {
   }
 
   handleSubmit = () => {
-    debugger;
+    // debugger;
     // console.log(this.textInput.value);
     this.setState({
       linkValue : this.textInput.value

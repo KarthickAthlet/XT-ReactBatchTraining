@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as completeActions from '../../actions/actionList';
+import './../IssueListingPage/IssueListingPage.css';
 
-class issueListingPage extends Component {
+class IssueListingPage extends Component {
   constructor(props){
     super(props);
     this.state= {
@@ -55,8 +56,7 @@ class issueListingPage extends Component {
   }
 
   render() {
-    // debugger;
-  return (<div>
+  return (<div className="IssueListingContainer">
           <ul>
             {this.state.issues.map((data,index)=> {
               const title = data.title; 
@@ -68,21 +68,17 @@ class issueListingPage extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  debugger;
   return {
       filterIssues: state.filterIssues
   };
-
 }
 
 function mapDispatchToProps(dispatch) {
   console.log(completeActions);
-  debugger;
   return {
     actions: bindActionCreators(completeActions, dispatch)
   };
-
 }
 
 // export default connect(mapStateToProps)(App);
-export default connect(mapStateToProps, mapDispatchToProps) (issueListingPage);
+export default connect(mapStateToProps, mapDispatchToProps) (IssueListingPage);

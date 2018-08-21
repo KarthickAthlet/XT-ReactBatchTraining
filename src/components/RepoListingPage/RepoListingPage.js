@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-
+import './../RepoListingPage/RepoListingPage.css';
 class RepoListingPage extends Component {
   constructor(props){
     super(props);
@@ -48,7 +48,7 @@ class RepoListingPage extends Component {
   render() { 
     // console.log(this.state.repoDetails);
     // debugger;
-    return (<div>       
+    return (<div className="repoListingPage">       
       <ul>
         {this.state.repoDetails.map((data,index)=> {
           console.log(data.name); 
