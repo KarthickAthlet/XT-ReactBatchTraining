@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     BrowserRouter,
     Route,
@@ -16,7 +16,7 @@ const Router = () => (
             <Route exact path="/" component={UserDetail} />
             <Route exact path="/users/:gitUserName/repos" component={RepoListingPage} />
             <Route exact path="/repos/:gitUserName/:gitRepoName/issues/" component={IssueListingPage} />
-            <Route exact path="/IssueDescribePage" component={IssueDescribePage} />
+            <Route exact path="/repos/:gitUserName/:gitRepoName/issues/:issueNumber" component={IssueDescribePage} />
             <Route component={PageNotFound} />
         </Switch>
     </BrowserRouter>

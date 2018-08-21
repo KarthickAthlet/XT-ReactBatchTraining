@@ -20,7 +20,7 @@ class issueListingPage extends Component {
     .then(res => res.json())
     .then(
       (result) => {
-        if(result.length == 0){
+        if(result.length === 0){
           this.setState({
             userName: gitUserName,
             repoName: gitRepoName,
@@ -57,7 +57,7 @@ class issueListingPage extends Component {
               const title = data.title; 
               return(<li key={index}><Link to={`/repos/${this.state.userName}/${this.state.repoName}/issues/${data.number}`} >{title}</Link></li>);
             })}
-          </ul>
+          </ul>         
           </div>);
   }
 }
